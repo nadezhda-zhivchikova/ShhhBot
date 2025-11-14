@@ -126,13 +126,16 @@ def main():
 
     logger.info("Starting ShhhBot with webhook at %s", webhook_url)
 
+    # ВАЖНО: здесь используем позиционные аргументы, без path/url_path
     application.run_webhook(
-        listen="0.0.0.0",
-        port=PORT,
-        path=TOKEN,              # <-- было url_path=TOKEN, должно быть path
-        webhook_url=webhook_url, # внешний URL
+        "0.0.0.0",      # listen
+        PORT,           # port
+        TOKEN,          # url_path / path (третьим параметром)
+        webhook_url=webhook_url,
         allowed_updates=Update.ALL_TYPES,
     )
+
+
 
 if __name__ == "__main__":
     main()
