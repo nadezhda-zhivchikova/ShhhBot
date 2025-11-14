@@ -78,3 +78,34 @@ async def message_control(update: Update, context: ContextTypes.DEFAULT_TYPE):
         logger.info(
             "Quiet time message in chat %s (%s) from user %s",
             chat.id,
+            chat.title,
+            message.from_user.username if message.from_user else "unknown",
+        )
+        await message.reply_text(REMINDER_TEXT)
+
+
+async def main():
+    if TOKEN == "PASTE_YOUR_TOKEN_HERE":
+        raise RuntimeError(
+            "Пожалуйста, укажите токен бота: переменная окружения TELEGRAM_BOT_TOKEN "
+            "или впишите его прямо в код вместо PASTE_YOUR_TOKEN_HERE."
+        )
+
+    app = ApplicationBuilder().token(TOKEN).build()
+
+    # Обрабатываем все типы сообщений, кроме команд (/start и т.п.)
+    app.add_handler(
+        MessageHandler(
+            filters.ALL & ~filters.COMMAND,
+            message_control,
+        )
+    )
+
+    logger.info("ShhhBot is running...")
+    await app.run_polling()
+
+
+if __name__ == "__main__":
+    import asyncio
+
+    asyncio.run(main())
