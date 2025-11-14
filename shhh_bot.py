@@ -111,7 +111,6 @@ async def message_control(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     await message.reply_text(REMINDER_TEXT)
 
-
 def main():
     application = ApplicationBuilder().token(TOKEN).build()
 
@@ -123,18 +122,17 @@ def main():
     )
 
     # URL, по которому Telegram будет слать обновления
-    webhook_url = f"{WEBHOOK_BASE_URL}/{TOKEN}"
+    webhook_url = f"{WEBHOOK_BASE_UR}/{TOKEN}"
 
     logger.info("Starting ShhhBot with webhook at %s", webhook_url)
 
     application.run_webhook(
         listen="0.0.0.0",
         port=PORT,
-        url_path=TOKEN,          # путь внутри сервера
-        webhook_url=webhook_url, # полный внешний URL
+        path=TOKEN,              # <-- было url_path=TOKEN, должно быть path
+        webhook_url=webhook_url, # внешний URL
         allowed_updates=Update.ALL_TYPES,
     )
-
 
 if __name__ == "__main__":
     main()
