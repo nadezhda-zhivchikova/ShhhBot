@@ -122,7 +122,7 @@ def main():
     )
 
     # URL, по которому Telegram будет слать обновления
-    webhook_url = f"{WEBHOOK_BASE_UR}/{TOKEN}"
+    webhook_url = f"{WEBHOOK_BASE_URL}/{TOKEN}"
 
     logger.info("Starting ShhhBot with webhook at %s", webhook_url)
 
