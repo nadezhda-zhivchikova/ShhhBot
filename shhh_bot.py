@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 # ========== НАСТРОЙКИ БОТА ==========
 
 # Токен бота: лучше передавать через переменную окружения TELEGRAM_BOT_TOKEN
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8588146758:AAF5PA8fckLAMK_ivrW0RRMy0QnRJRPnto4")
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8588146758:AAHTib20vMVE_0J0fqmTI03ZzPBlwuYa88M")
 
 # Часовой пояс (можешь поменять при необходимости)
 TZ = ZoneInfo("Asia/Tbilisi")
