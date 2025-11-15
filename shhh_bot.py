@@ -45,17 +45,27 @@ MIN_REMINDER_INTERVAL = timedelta(minutes=5)
 # Здесь будем хранить время последнего напоминания по chat.id
 last_reminder_time: dict[int, datetime] = {}
 
-
 def is_quiet_time(now: datetime) -> bool:
-    """Проверяем, попадает ли текущее время в тихий период."""
+    """
+    Проверяем, тихое ли сейчас время.
+    Тихое время:
+        - всегда суббота (weekday = 5)
+        - всегда воскресенье (weekday = 6)
+        - или тихие часы в будни
+    """
+    # Если сегодня суббота или воскресенье — весь день тихий
+    if now.weekday() in (5, 6):
+        return True
+
     current_t = now.time()
 
     if QUIET_START < QUIET_END:
-        # Тихий период внутри одних суток, напр. 20:00–23:00
+        # Тихий период в пределах суток (например, 20:00–23:00)
         return QUIET_START <= current_t < QUIET_END
     else:
-        # Тихий период через полночь, напр. 22:00–08:00
+        # Тихий период через полночь (например, 22:00–08:00)
         return current_t >= QUIET_START or current_t < QUIET_END
+
 
 
 def can_send_reminder(chat_id: int, now: datetime) -> bool:
