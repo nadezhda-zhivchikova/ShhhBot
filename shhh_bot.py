@@ -32,7 +32,7 @@ QUIET_START = time(19, 0)
 QUIET_END = time(10, 0)
 
 REMINDER_TEXT = (
-    "🌙 Shhh...\n\n"
+    "\n🌙 Shhh...\n\n"
     "ახლა ჩეთში მშვიდი საათებია\n"
     "В рабочих чатах время тишины\n"
     "It’s quiet hours in this chat right now\n"
