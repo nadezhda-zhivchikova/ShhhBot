@@ -29,7 +29,7 @@ TZ = ZoneInfo("Asia/Tbilisi")
 # Время начала и конца "тихого режима"
 # Например: QUIET_START = 19:00, QUIET_END = 08:00
 QUIET_START = time(19, 0)
-QUIET_END = time(9, 0)
+QUIET_END = time(8, 0)
 
 REMINDER_TEXT = (
     "\n"
