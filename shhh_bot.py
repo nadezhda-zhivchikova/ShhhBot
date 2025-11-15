@@ -33,7 +33,7 @@ QUIET_END = time(9, 0)
 
 REMINDER_TEXT = (
     "\n"
-    "🤫 Shhh...\n\n 19:00 - 08:00"
+    "🤫 Shhh...\n\n 19:00 - 08:00\n\n"
     "ახლა ჩეთში მშვიდი საათებია\n"
     "В рабочих чатах время тишины\n"
     "It’s quiet hours in this chat right now\n"
