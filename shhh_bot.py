@@ -32,9 +32,9 @@ QUIET_START = time(19, 0)
 QUIET_END = time(10, 0)
 
 REMINDER_TEXT = (
-    "🌙 Shhh...\n"
+    "🌙 Shhh...\n\n"
     "ახლა ჩეთში მშვიდი საათებია\n"
-    "Сейчас тихое время в этом чате\n"
+    "В рабочих чатах время тишины\n"
     "It’s quiet hours in this chat right now\n"
 )
 
@@ -112,7 +112,9 @@ async def message_control(update: Update, context: ContextTypes.DEFAULT_TYPE):
         chat.title,
         message.from_user.username if message.from_user else "unknown",
     )
-    await message.reply_text(REMINDER_TEXT)
+    await message.reply_text(
+    REMINDER_TEXT,
+    disable_notification=True)
 
 
 def main():
